@@ -1,0 +1,26 @@
+{
+  "name": "pp-collection",
+  "version": "1.0.0",
+  "description": "Simple Collection container model from pp-mode.js",
+  "main": "pp-collection.js",
+  "scripts": {
+    "test": "ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-sweb/pp-collection.git"
+  },
+  "keywords": [
+    "model",
+    "collection"
+  ],
+  "author": "Carlos Illesca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlos-sweb/pp-collection/issues"
+  },
+  "homepage": "https://github.com/carlos-sweb/pp-collection#readme",
+  "dependencies": {
+    "pp-model.js": "^1.0.2"
+  }
+}
