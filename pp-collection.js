@@ -22,52 +22,91 @@
   } else {
     root.ppCollection = factory(root, {});
   }
-})(function(root, ppCollection) {
+})(function(root, ppCollection) {    
 
-	return function(preOptions){	
+    return function( preOptions ){
 
-		this.model = null;
+      var preOptions  = preOptions || {};
 
-		this.collection = [];
+      return function( options ){
 
-		this.stringify = function(){}
-    
-    this.add = function(){}
+        this.model = preOptions.model || null;
+                 
+        this.collection = [];        
 
-    this.remove = function(){}
+        options.forEach(( _model )=>{
 
-    this.reset = function(){}
+              this.collection.push( new this.model(_model) );
 
-    this.set = function(){}
+        });
 
-    this.get = function(){}
+        this.forEach = function( func ){
+          return this.collection.forEach( func );
+        }
 
-    this.at = function(){}
+        this.filter = function( func ){
 
-    this.push = function(){}
+          return this.collection.filter( func );
 
-    this.pop = function(){}
+        }
 
-    this.unshift = function(){}
+        this.getAll = function(){
+          return this.collection;
+        }
 
-    this.shift = function(){}
+        this.at = function( number ){
+          if( typeof number == 'number' ){
+              if( number <= this.collection.length ){
+                 return this.collection[number]; 
+              }else{
+                return null;
+              }
+          }else{
+            return null;
+          }
+        }
 
-    this.slice = function(){}
+      this.push = function( obj ){
+          this.collection.push( new this.model(obj) );
+      }
 
-    this.length = function(){}
+      this.pop = function(){
+        this.collection.pop();
+      }
 
-    this.sort = function(){}
+      this.unshift = function(){
+        /// Pendiente 
+      }
 
-    this.pluck = function(){}
+      this.shift = function(){
+        this.collection.shift();
+      }
 
-    this.where = function(){}
+      this.slice = function(){}
 
-    this.findWhere = function(){}
+      this.length = function(){
+        return this.collection.length;
+      }
 
-    this.parse = function(){}
+      this.sort = function(){}
 
-    this.clone = function(){}
+      this.pluck = function(){}
 
-	}
+      this.where = function(){}
+
+      this.findWhere = function(){}
+
+      this.parse = function(){} 
+
+
+
+
+
+          
+
+      }
+
+    }
+
 
 });
