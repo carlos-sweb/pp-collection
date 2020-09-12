@@ -303,10 +303,11 @@ var printTableRows = function( el ){
   var tableRows = "";
 
   mc.forEach((Model)=>{
-    tableRows+="<tr><td>";
-    tableRows+="<img src='"+Model.get("picture")+"' ></td>";
+    tableRows+="<tr>";
+    tableRows+="<td><img src='"+Model.get("picture")+"' ></td>";
     tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
-    tableRows+="<td>"+Model.get("balance")+"</td></tr>";
+    tableRows+="<td>"+Model.get("balance")+"</td>";
+    tableRows+="</tr>";
   });
 
   el.innerHTML = tableRows;
@@ -314,4 +315,3 @@ var printTableRows = function( el ){
 }
 
 printTableRows( element );
-
