@@ -30,34 +30,45 @@
 
       return function( options ){
 
+        /**
+        *@var model
+        *@type Function
+        */
         this.model = preOptions.model || null;
-                 
+        /*
+        *@var model
+        *@type Array
+        */
         this.collection = [];        
-
+        //HERE INITUIALIZE MODEL CONSTRUCTOR MODEL
         options.forEach(( _model )=>{
-
-              this.collection.push( new this.model(_model) );
-
+          this.collection.push( new this.model(_model) );
         });
 
+        /*
+        *Native Function forEach from array
+        */
         this.forEach = function( func ){
           return this.collection.forEach( func );
         }
-
+        /*
+        *Native Function filter from array
+        */
         this.filter = function( func ){
-
           return this.collection.filter( func );
-
         }
 
         this.getAll = function(){
           return this.collection;
         }
-
-        this.at = function( number ){
-          if( typeof number == 'number' ){
-              if( number <= this.collection.length ){
-                 return this.collection[number]; 
+        /*
+        *At
+        *@param position
+        */
+        this.at = function( position ){
+          if( typeof position == 'number' ){
+              if( position <= this.collection.length ){
+                 return this.collection[position]; 
               }else{
                 return null;
               }

@@ -274,21 +274,21 @@ var data = [
 ];
 
 
-var editor = CodeMirror.fromTextArea(document.getElementById("code1"), {
-     lineNumbers: true,
-     mode:'javascript',
-     theme:'ayu-mirage',     
-     readOnly:true,
-     gutters:{
-       className:"mdc-elevation--z2"
-     }
+var codes = document.querySelectorAll("[code]");
+
+codes.forEach(( code )=>{
+    CodeMirror.fromTextArea(code, {
+         lineNumbers: true,
+         mode:'javascript',
+         theme:'ayu-mirage',     
+         readOnly:true,
+         gutters:{
+           className:"mdc-elevation--z2"
+         }
+    });
 });
 
-var model = new ppModel({
-  defaults:{
-    ka:true
-  }
-});
+var model = new ppModel();
 
 var modelCollection = ppCollection({
   "model" : model
@@ -296,17 +296,17 @@ var modelCollection = ppCollection({
 
 var mc = new modelCollection(data);
 
-var myDataShow = document.getElementById("myDataShow");
+var element = document.getElementById("tableRows");
 
-var text = "";
+console.log( element );
 
-mc.getAll().filter((a)=>{
-  return true;
-}).forEach((Model)=>{
+var tableRows = "";
 
-  text+="<tr><td><img src='"+Model.get("picture")+"' ></td><td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td><td>"+Model.get("balance")+"</td></tr>";
-
+mc.forEach((Model)=>{
+  tableRows+="<tr><td>";
+  tableRows+="<img src='"+Model.get("picture")+"' ></td>";
+  tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
+  tableRows+="<td>"+Model.get("balance")+"</td></tr>";
 });
 
-myDataShow.innerHTML = text;
-
+element.innerHTML = tableRows;
