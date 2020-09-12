@@ -298,15 +298,20 @@ var mc = new modelCollection(data);
 
 var element = document.getElementById("tableRows");
 
-console.log( element );
+var printTableRows = function( el ){
 
-var tableRows = "";
+  var tableRows = "";
 
-mc.forEach((Model)=>{
-  tableRows+="<tr><td>";
-  tableRows+="<img src='"+Model.get("picture")+"' ></td>";
-  tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
-  tableRows+="<td>"+Model.get("balance")+"</td></tr>";
-});
+  mc.forEach((Model)=>{
+    tableRows+="<tr><td>";
+    tableRows+="<img src='"+Model.get("picture")+"' ></td>";
+    tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
+    tableRows+="<td>"+Model.get("balance")+"</td></tr>";
+  });
 
-element.innerHTML = tableRows;
+  el.innerHTML = tableRows;
+
+}
+
+printTableRows( element );
+

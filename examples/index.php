@@ -101,20 +101,26 @@ let element = document.getElementById("tableRows");
 
 let tableRows = "";
 
-// You could also use mc.forEach
-mc.getAll().forEach((Model)=>{
-  
-  tableRows +="&#60;tr&#62;&#60;td&#62;";
-  
-  tableRows +="&#60;img src='"+Model.get("picture")+"' >&#60;&#47;td&#62;";
-  
-  tableRows +="&#60;td&#62;"+Model.get("name")+"&#60;&#47;td&#62;&#60;td&#62;"+Model.get("email")+"&#60;&#47;td&#62;";
-  
-  tableRows +="&#60;td&#62;"+Model.get("balance")+"&#60;&#47;td&#62;&#60;&#47;tr&#62;";
+var printTableRows = function( el ){
+	
+	// You could also use mc.forEach
+	mc.getAll().forEach((Model)=>{
 
-});
+		tableRows +="&#60;tr&#62;&#60;td&#62;";
 
-element.innerHTML = tableRows;
+		tableRows +="&#60;img src='"+Model.get("picture")+"' >&#60;&#47;td&#62;";
+
+		tableRows +="&#60;td&#62;"+Model.get("name")+"&#60;&#47;td&#62;&#60;td&#62;"+Model.get("email")+"&#60;&#47;td&#62;";
+
+		tableRows +="&#60;td&#62;"+Model.get("balance")+"&#60;&#47;td&#62;&#60;&#47;tr&#62;";
+
+	});
+
+	el.innerHTML = tableRows;
+
+}
+
+printTableRows( element );
 
 //...........</textarea><hr>
 <p class="title is-3 underline" >Result</p>
