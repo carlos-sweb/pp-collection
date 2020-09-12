@@ -1,3 +1,3 @@
 # pp-collection
 
-## Check WebSite [https://pp-collection.netlify.app](Here)
+## Check WebSite [Go !](https://pp-collection.netlify.app)
