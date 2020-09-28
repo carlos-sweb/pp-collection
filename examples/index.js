@@ -12,7 +12,6 @@ var showCodehtml = function(){
   $("codejs").nextSibling.style.display = "none";
 }
 
-
 var codes = document.querySelectorAll("[code]");
 
 codes.forEach(( code )=>{
@@ -24,29 +23,33 @@ codes.forEach(( code )=>{
     });
 });
 
-
 var model = new ppModel();
 
-var modelCollection = ppCollection({
-  "model" : model
-});
+var modelCollection = ppCollection({ "model" : model });
 
 var mc = new modelCollection(data);
 
 var element = document.getElementById("tableRows");
 
-
-
 $("codehtml").nextSibling.style.display = "none";
-var search = '';
+
+var setting = {
+  search:'',
+  data : mc.getAll()
+};
+
 ["keyup","keydown","keypress"].forEach((eventKey)=>{
   document.querySelector("#search").addEventListener(eventKey,(event)=>{
     
-    if( event.target.value != search ){      
+    if( event.target.value != setting.search ){      
       
-      search = event.target.value;
+      setting.search = event.target.value;
 
-      printTableRows( element , mc.filterBy( 'name' , search ) );
+      console.log( setting );
+
+      setting.data = mc.filterBy( ['name','email','balance'] , setting.search ) ;
+
+      printTableRows( element , setting.data );
 
     }
 
@@ -54,22 +57,22 @@ var search = '';
 });
 
 
-
-
 var printTableRows = function( el , _model ){
 
   var tableRows = "";
 
   _model.forEach((Model)=>{
+    
     tableRows+="<tr>";
     tableRows+="<td><img src='"+Model.get("picture")+"' ></td>";
     tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
     tableRows+="<td>"+Model.get("balance")+"</td>";
     tableRows+="</tr>";
+
   });
 
   el.innerHTML = tableRows;
 
 }
 
-printTableRows( element , mc);
+printTableRows( element , setting.data );

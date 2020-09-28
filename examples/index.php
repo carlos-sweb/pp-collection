@@ -152,8 +152,16 @@ printTableRows( element );
 
 <form >
 	<div class="field">
-		<input id="search" class="input" type="text" autocomplete="off" >
+		<input placeholder="search" id="search" class="input" type="text" autocomplete="off" >
 	</div>
+	
+	<div class="field">
+		<label for="">Search only for:</label><br>
+		<label for=""><input type="checkbox">Name</label>&nbsp;&nbsp;
+		<label for=""><input type="checkbox">Email</label>&nbsp;&nbsp;
+		<label for=""><input type="checkbox">Balance</label>	
+	</div>
+
 </form>
 
 
@@ -163,13 +171,12 @@ printTableRows( element );
 			<td>&nbsp;</td>
 			<td>Name</td>
 			<td>Mail</td>
-			<td>Salary</td>
+			<td>Balance</td>
 		</tr>
 	</thead>
 	<tbody id="tableRows" >					
 	</tbody>
 </table>
-
 
 </div>
 </section>

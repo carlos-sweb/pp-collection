@@ -57,18 +57,44 @@
         this.filter = function( func ){
           return this.collection.filter( func );
         }
-
-        this.filterBy = function( field , value ){          
+        /**
+        *@var filterBy
+        *
+        */
+        this.filterBy = function( field , value , sensitivity ){          
           
+          if( !typeof sensitivity == 'boolean' ){
+            sensitivity = false;
+          }
+
           return this.collection.filter(( item )=>{             
             if( typeof field  == 'string' ){
               if( item.has(field) ){
-
-               return item.get(field).includes(value);
-
+               return sensitivity ? item.get(field).includes(value) : item.get(field).toLowerCase().includes(value.toLowerCase());
               }
-            }            
-            return false;            
+            }
+            if( typeof field.forEach == 'function' ){                
+                
+                var match = false;
+
+                field.forEach(( fieldItem )=>{
+
+                  if( item.has(fieldItem) ){
+                      var _match = sensitivity ? item.get(fieldItem).includes(value) : item.get(fieldItem).toLowerCase().includes(value.toLowerCase());
+                      
+                      if( _match && !match){
+                        match = true;
+                      }
+                  }   
+                                 
+                });
+
+                return match;
+                // -------------------------------------------------------------------
+            }
+
+            return false;
+
           });
 
         }
