@@ -93,8 +93,8 @@ var mc = new modelCollection(data);
 
 <div class="tabs">
   <ul>
-    <li tab="js" class="is-active"><a>Javascript</a></li>
-    <li tab="html" ><a>HTML</a></li>    
+    <li tab="js" class="is-active" onclick="showCodejs()"><a>Javascript</a></li>
+    <li tab="html" onclick="showCodehtml()" ><a>HTML</a></li>    
   </ul>
 </div>
 
@@ -112,7 +112,7 @@ var mc = new modelCollection(data);
 	});
 </script>
 
-<textarea code >//...........
+<textarea code id="codejs" >//...........
 var mc = new modelCollection(data);
 /**
 HTML Code
@@ -148,7 +148,7 @@ var printTableRows = function( el ){
 
 printTableRows( element );
 //...........</textarea><br>
-<textarea code >&#60;table class="table" &#62;
+<textarea code id="codehtml" >&#60;table class="table" &#62;
 	&#60;tbody id="tableRows" &#62;					
 	&#60;/tbody&#62;
 &#60;/table&#62;</textarea>

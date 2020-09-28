@@ -1,3 +1,13 @@
+var showCodejs = function(){
+  document.getElementById("codejs").style.display   = "block";
+  document.getElementById("codehtml").style.display = "none";
+}
+
+var showCodehtml = function(){
+  document.getElementById("codehtml").style.display   = "block";
+  document.getElementById("codejs").style.display = "none";
+}
+
 var codes = document.querySelectorAll("[code]");
 
 codes.forEach(( code )=>{
@@ -5,10 +15,7 @@ codes.forEach(( code )=>{
          lineNumbers: true,
          mode:'javascript',
          theme:'ayu-mirage',     
-         readOnly:true,
-         gutters:{
-           className:"mdc-elevation--z2"
-         }
+         readOnly:true         
     });
 });
 

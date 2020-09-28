@@ -1,3 +1,7 @@
-# pp-collection
+# pp-collection.js
 
-## Check WebSite [Go !](https://pp-collection.netlify.app)
+```
+npm i pp-collection.js --save
+```
+
+check the <a href="https://pp-collection.netlify.app">Documentation</a>
