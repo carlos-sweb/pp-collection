@@ -113,14 +113,9 @@ var mc = new modelCollection(data);
 </script>
 
 <textarea code id="codejs" >//...........
+
 var mc = new modelCollection(data);
-/**
-HTML Code
-&#60;table class="table" &#62;
-	&#60;tbody id="tableRows" &#62;					
-	&#60;/tbody&#62;
-&#60;/table&#62;
-**/
+
 let element = document.getElementById("tableRows");
 
 let tableRows = "";
@@ -163,6 +158,14 @@ printTableRows( element );
 
 
 <table class="table" >
+	<thead>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Name</td>
+			<td>Mail</td>
+			<td>Salary</td>
+		</tr>
+	</thead>
 	<tbody id="tableRows" >					
 	</tbody>
 </table>
@@ -170,12 +173,11 @@ printTableRows( element );
 
 </div>
 </section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/voca/1.4.0/voca.min.js" ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/javascript/javascript.min.js" integrity="sha512-9miXlEjnHTF+nVGdc2IGOLGTFW2wWkWbd1/7Ltlre+dM53ZSCUQ/PNN+jtsmYqr3ndiD5RW6XQJUm/Hz8JvyOQ==" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="data.js" ></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pp-model.js@1.0.4/pp-model.min.js" ></script>
-
+<script type="text/javascript" src="data.js" ></script>
 <script type="text/javascript" src="../pp-collection.js?v=<?=rand(0,5000000000000)?>" ></script>
 <script type="text/javascript" src="index.js?v=<?=rand(0,5000000000000)?>"></script>
 </body>

@@ -58,6 +58,21 @@
           return this.collection.filter( func );
         }
 
+        this.filterBy = function( field , value ){          
+          
+          return this.collection.filter(( item )=>{             
+            if( typeof field  == 'string' ){
+              if( item.has(field) ){
+
+               return item.get(field).includes(value);
+
+              }
+            }            
+            return false;            
+          });
+
+        }
+
         this.getAll = function(){
           return this.collection;
         }
