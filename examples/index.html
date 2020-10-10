@@ -11,6 +11,7 @@
   text-decoration:underline;
 }   
 .CodeMirror { 
+  border-radius:10px;
   width:100%; 
   height: auto;
   -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
@@ -41,7 +42,8 @@ var modelCollection = ppCollection({
   "model" : model
 });
 // Created model using data array
-var mc = new modelCollection(data);</textarea><hr>
+var mc = new modelCollection(data);
+</textarea><hr>
 
 <p class="title is-4 underline" >forEach:<span class="has-text-info" >&nbsp;[Function]</span></p>
 <p>Native Function.</p><hr>
@@ -86,17 +88,34 @@ var mc = new modelCollection(data);</textarea><hr>
 <p class="title is-4 underline" >parse:<span class="has-text-info" >&nbsp;[Function]</span></p>
 <p>Native Function.</p><hr>
 
-<p class="title is-2 underline" >Examples:</p>
-<textarea code >//...........
+<p class="title is-2 underline" >Example:</p>
+
+
+<div class="tabs">
+  <ul>
+    <li tab="js" class="is-active" onclick="showCodejs()"><a>Javascript</a></li>
+    <li tab="html" onclick="showCodehtml()" ><a>HTML</a></li>    
+  </ul>
+</div>
+
+<script>  
+  var tabs = document.querySelectorAll("[tab]");
+  tabs.forEach((tab)=>{
+    tab.addEventListener("click",( ETab )=>{      
+      Array.from(ETab.currentTarget.parentElement.children).forEach(function(li){
+        if( li.classList.contains("is-active") ){
+          li.classList.remove("is-active");
+        }       
+      });
+      ETab.currentTarget.classList.add("is-active");
+    });
+  });
+</script>
+
+<textarea code id="codejs" >//...........
+
 var mc = new modelCollection(data);
 
-/**
-HTML Code
-<table class="table" >
-  <tbody id="tableRows" >         
-  </tbody>
-</table>
-**/
 let element = document.getElementById("tableRows");
 
 let tableRows = "";
@@ -123,20 +142,51 @@ var printTableRows = function( el ){
 }
 
 printTableRows( element );
-
-//...........</textarea><hr>
+//...........</textarea><br>
+<textarea code id="codehtml" >&#60;table class="table" &#62;
+  &#60;tbody id="tableRows" &#62;         
+  &#60;/tbody&#62;
+&#60;/table&#62;</textarea>
+<hr>
 <p class="title is-3 underline" >Result</p>
-<table class="table" >
+
+<form >
+  <div class="field">
+    <input placeholder="search" id="search" class="input" type="text" autocomplete="off" >
+  </div>
+  
+  <div class="field">
+    <label for="">Search only for:</label><br>
+    <label for=""><input name="filterBy" type="radio" value="name,email,balance" checked="checked" >All</label>&nbsp;&nbsp;
+    <label for=""><input name="filterBy" type="radio" value="name"    >Name</label>&nbsp;&nbsp;
+    <label for=""><input name="filterBy" type="radio" value="email"   >Email</label>&nbsp;&nbsp;
+    <label for=""><input name="filterBy" type="radio" value="balance" >Balance</label>  
+  </div>
+
+</form>
+
+
+<table class="table is-bordered" style="width:100%;" >
+  <thead>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Name</td>
+      <td>Mail</td>
+      <td>Balance</td>
+    </tr>
+  </thead>
   <tbody id="tableRows" >         
   </tbody>
 </table>
 
 </div>
 </section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/voca/1.4.0/voca.min.js" ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/javascript/javascript.min.js" integrity="sha512-9miXlEjnHTF+nVGdc2IGOLGTFW2wWkWbd1/7Ltlre+dM53ZSCUQ/PNN+jtsmYqr3ndiD5RW6XQJUm/Hz8JvyOQ==" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pp-model.js@1.0.4/pp-model.min.js" ></script>
-<script type="text/javascript" src="../pp-collection.js?v=2424818965558" ></script>
-<script type="text/javascript" src="index.js?v=2756969163391"></script>
+<script type="text/javascript" src="data.js" ></script>
+<script type="text/javascript" src="../pp-collection.js?v=4332465752335" ></script>
+<script type="text/javascript" src="index.js?v=3237527465065"></script>
 </body>
 </html>

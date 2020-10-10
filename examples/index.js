@@ -35,6 +35,7 @@ $("codehtml").nextSibling.style.display = "none";
 
 var setting = {
   search:'',
+  filterBy:'name,email,balance',
   data : mc.getAll()
 };
 
@@ -45,15 +46,28 @@ var setting = {
       
       setting.search = event.target.value;
 
-      console.log( setting );
+      setting.filterBy = document.querySelector("input[name='filterBy']:checked").value;
 
-      setting.data = mc.filterBy( ['name','email','balance'] , setting.search ) ;
+      setting.data = mc.filterBy( setting.filterBy.split(",") , setting.search ) ;
 
       printTableRows( element , setting.data );
 
     }
 
   });  
+});
+
+document.querySelectorAll("input[name='filterBy']").forEach(( input )=>{
+  input.addEventListener("click",()=>{
+      
+
+      setting.filterBy = document.querySelector("input[name='filterBy']:checked").value;
+
+      setting.data = mc.filterBy( setting.filterBy.split(",") , setting.search ) ;
+
+      printTableRows( element , setting.data );
+
+  });
 });
 
 

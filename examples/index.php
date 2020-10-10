@@ -157,15 +157,16 @@ printTableRows( element );
 	
 	<div class="field">
 		<label for="">Search only for:</label><br>
-		<label for=""><input type="checkbox">Name</label>&nbsp;&nbsp;
-		<label for=""><input type="checkbox">Email</label>&nbsp;&nbsp;
-		<label for=""><input type="checkbox">Balance</label>	
+		<label for=""><input name="filterBy" type="radio" value="name,email,balance" checked="checked" >All</label>&nbsp;&nbsp;
+		<label for=""><input name="filterBy" type="radio" value="name"    >Name</label>&nbsp;&nbsp;
+		<label for=""><input name="filterBy" type="radio" value="email"   >Email</label>&nbsp;&nbsp;
+		<label for=""><input name="filterBy" type="radio" value="balance" >Balance</label>	
 	</div>
 
 </form>
 
 
-<table class="table" >
+<table class="table is-bordered" style="width:100%;" >
 	<thead>
 		<tr>
 			<td>&nbsp;</td>
