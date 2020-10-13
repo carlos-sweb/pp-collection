@@ -102,21 +102,21 @@
         this.getAll = function(){
           return this.collection;
         }
-        /*
-        *At
-        *@param position
-        */
-        this.at = function( position ){
-          if( typeof position == 'number' ){
-              if( position <= this.collection.length ){
-                 return this.collection[position]; 
-              }else{
-                return null;
-              }
-          }else{
-            return null;
-          }
+      /*
+      *At
+      *@param position
+      */
+      this.at = function( position ){
+        if( typeof position == 'number' ){
+            if( position <= this.collection.length ){
+               return this.collection[position]; 
+            }else{
+              return null;
+            }
+        }else{
+          return null;
         }
+      }
 
       this.push = function( obj ){
           this.collection.push( new this.model(obj) );
@@ -142,7 +142,20 @@
 
       this.sort = function(){}
 
-      this.pluck = function(){}
+      /**
+      *@pluck Function
+      */
+      this.pluck = function( nameProperty ){
+        var pluck = [];
+        if( typeof nameProperty == 'string' ){
+           this.collection.forEach(( item )=>{
+              if( item.has( nameProperty ) ){
+                 pluck.push( item.get(nameProperty) ); 
+              } 
+           });
+        }
+        return pluck;
+      }
 
       this.where = function(){}
 

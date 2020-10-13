@@ -87,6 +87,9 @@ var printTableRows = function( el , _model ){
 
   el.innerHTML = tableRows;
 
+
+
+
 }
 
 printTableRows( element , setting.data );
