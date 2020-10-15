@@ -29,6 +29,11 @@ var modelCollection = ppCollection({ "model" : model });
 
 var mc = new modelCollection(data);
 
+
+mc.unshift({
+  al:"aa"
+});
+
 var element = document.getElementById("tableRows");
 
 $("codehtml").nextSibling.style.display = "none";
@@ -73,22 +78,26 @@ document.querySelectorAll("input[name='filterBy']").forEach(( input )=>{
 
 var printTableRows = function( el , _model ){
 
-  var tableRows = "";
+  var tableRows = "";  
+ 
+ 
+  if( _model.length > 0 ){
+    _model.forEach((Model)=>{    
+      tableRows+="<tr>";
+      tableRows+="<td><img src='"+Model.get("picture")+"' ></td>";
+      tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
+      tableRows+="<td>"+Model.get("balance")+"</td>";
+      tableRows+="</tr>";
+    });
+  }else{
 
-  _model.forEach((Model)=>{
-    
     tableRows+="<tr>";
-    tableRows+="<td><img src='"+Model.get("picture")+"' ></td>";
-    tableRows+="<td>"+Model.get("name")+"</td><td>"+Model.get("email")+"</td>";
-    tableRows+="<td>"+Model.get("balance")+"</td>";
+    tableRows+="<td colspan='4' style='text-align:center;' ><strong><i>No found</i></strong></td>";
     tableRows+="</tr>";
 
-  });
-
+  } 
+  
   el.innerHTML = tableRows;
-
-
-
 
 }
 

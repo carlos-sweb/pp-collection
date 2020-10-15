@@ -123,21 +123,33 @@
       }
 
       this.pop = function(){
+
         this.collection.pop();
+
       }
 
-      this.unshift = function(){
-        /// Pendiente 
+      this.unshift = function(){        
+
+        // pending
+                  
       }
 
       this.shift = function(){
+
         this.collection.shift();
+
       }
 
-      this.slice = function(){}
+      this.slice = function( start , end ){
+
+        return this.collection.slice( start , end );
+
+      }
 
       this.length = function(){
+
         return this.collection.length;
+        
       }
 
       this.sort = function(){}
