@@ -30,9 +30,9 @@ var modelCollection = ppCollection({ "model" : model });
 var mc = new modelCollection(data);
 
 
-mc.unshift({
-  al:"aa"
-});
+console.log( mc.sortBy( "name" , true ) );
+
+
 
 var element = document.getElementById("tableRows");
 

@@ -61,6 +61,7 @@
         *@var filterBy
         *
         */
+        // deberia agregar multiples filed and values
         this.filterBy = function( field , value , sensitivity ){          
           
           if( !typeof sensitivity == 'boolean' ){
@@ -98,10 +99,15 @@
           });
 
         }
+      /**
+      *
+      *
+      */  
+      this.getAll = function(){
 
-        this.getAll = function(){
-          return this.collection;
-        }
+        return this.collection;
+
+      }
       /*
       *At
       *@param position
@@ -152,7 +158,29 @@
         
       }
 
-      this.sort = function(){}
+      // deberia agrandar By para poder recibir una 
+      this.sortBy = function( by , direction  ){        
+
+         var direction = direction == null || direction == undefined ? true : direction; 
+         
+         var collectionValue = [];
+
+         for( var i = 0; i < this.collection.length; i++ ){
+             if( this.collection[i].has(by) ){               
+               collectionValue.push( this.collection[i].get(by) );
+             }
+         }         
+
+         collectionValue = direction ?  collectionValue.sort() : collectionValue.sort().reverse();
+
+         var vtr = [];
+         
+         // Voy Aqui
+
+
+         return vtr;
+
+      }
 
       /**
       *@pluck Function
@@ -168,19 +196,11 @@
         }
         return pluck;
       }
-
-      this.where = function(){}
-
-      this.findWhere = function(){}
-
-      this.parse = function(){} 
+    // --------------------------------------------------------------------    
 
 
 
-
-
-          
-
+    // --------------------------------------------------------------------
       }
 
     }
