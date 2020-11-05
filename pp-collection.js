@@ -159,27 +159,34 @@
       }
 
       // deberia agrandar By para poder recibir una 
-      this.sortBy = function( by , direction  ){        
-
+      this.sortBy = function( by , direction , collection   ){
+         
          var direction = direction == null || direction == undefined ? true : direction; 
          
          var collectionValue = [];
 
-         for( var i = 0; i < this.collection.length; i++ ){
-             if( this.collection[i].has(by) ){               
-               collectionValue.push( this.collection[i].get(by) );
+         var collection = typeof collection == 'undefined' ?  this.collection : collection;
+        
+
+         for( var i = 0; i < collection.length; i++ ){
+             if( collection[i].has(by) ){  
+
+               // no permitir duplkicaciones del valor indexOf validation
+               collectionValue.push( collection[i].get(by) );
+
              }
          }         
+         // Aqui no se deberia permitir valores duplicados
+        collectionValue = direction ?  collectionValue.sort() : collectionValue.sort().reverse();
 
-         collectionValue = direction ?  collectionValue.sort() : collectionValue.sort().reverse();
-
-         var vtr = [];
-         
-         // Voy Aqui
-
-
-         return vtr;
-
+        var vtr = [];
+        
+        for( var i = 0; i < collectionValue.length ; i ++ ){             
+             vtr = [...vtr,...this.getAll().filter(( Item )=>{
+               return Item.get(by) == collectionValue[i];
+             })];
+        }        
+        return vtr;
       }
 
       /**

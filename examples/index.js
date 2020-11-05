@@ -29,11 +29,6 @@ var modelCollection = ppCollection({ "model" : model });
 
 var mc = new modelCollection(data);
 
-
-console.log( mc.sortBy( "name" , true ) );
-
-
-
 var element = document.getElementById("tableRows");
 
 $("codehtml").nextSibling.style.display = "none";
@@ -41,31 +36,82 @@ $("codehtml").nextSibling.style.display = "none";
 var setting = {
   search:'',
   filterBy:'name,email,balance',
-  data : mc.getAll()
+  data : mc.getAll(),
+  sortBy:{}
 };
 
 ["keyup","keydown","keypress"].forEach((eventKey)=>{
+
   document.querySelector("#search").addEventListener(eventKey,(event)=>{
+
     
     if( event.target.value != setting.search ){      
       
       setting.search = event.target.value;
-
+        
+      
+      var sortBy = Object.keys( setting.sortBy ).shift();
+      
       setting.filterBy = document.querySelector("input[name='filterBy']:checked").value;
 
       setting.data = mc.filterBy( setting.filterBy.split(",") , setting.search ) ;
-
+      
+      
+      if( typeof sortBy != "undefined" ){
+        setting.data = mc.sortBy( sortBy , setting.sortBy[sortBy] , setting.data ) ;  
+      }
+      
+     
       printTableRows( element , setting.data );
+
 
     }
 
   });  
 });
 
+
+document.querySelectorAll("[clickSortBy]").forEach(( elem )=>{
+
+  elem.addEventListener("click",()=>{
+
+      Array.from(elem.parentElement.children).forEach((children)=>{
+          children.style = {};
+          children.classList.remove("active");
+      });
+
+      elem.classList.add("active");
+
+      elem.style.fontWeight = "bold";
+
+      elem.style.textDecoration = "underline";  
+
+      var sortBy = elem.getAttribute("clickSortBy");
+
+      if( setting.sortBy[sortBy] == undefined ){
+        setting.sortBy = {};
+        setting.sortBy[sortBy] = true;
+      }else{
+        setting.sortBy[sortBy] = !setting.sortBy[sortBy];
+      }
+
+          
+      setting.filterBy = document.querySelector("input[name='filterBy']:checked").value;
+
+      setting.data = mc.filterBy( setting.filterBy.split(",") , setting.search ) ;
+
+      setting.data = mc.sortBy( sortBy , setting.sortBy[sortBy] , setting.data ) ;
+     
+      printTableRows( element , setting.data );
+     
+
+  });
+});
+
 document.querySelectorAll("input[name='filterBy']").forEach(( input )=>{
+
   input.addEventListener("click",()=>{
       
-
       setting.filterBy = document.querySelector("input[name='filterBy']:checked").value;
 
       setting.data = mc.filterBy( setting.filterBy.split(",") , setting.search ) ;
@@ -73,6 +119,7 @@ document.querySelectorAll("input[name='filterBy']").forEach(( input )=>{
       printTableRows( element , setting.data );
 
   });
+
 });
 
 
