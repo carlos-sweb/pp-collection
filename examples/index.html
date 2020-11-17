@@ -1,42 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/theme/ayu-mirage.min.css" integrity="sha512-McHJYTvQc4LZQBg2bCgKgDbvGWaSe2ZiDbc3UoMS+ihFI103kl54eKblXb8tBtwhLAh0Yoogy8VXkmZTekMlzA==" crossorigin="anonymous" />
-  <style>
-.underline{
-  text-decoration:underline;
-}   
-.CodeMirror { 
-  border-radius:10px;
-  width:100%; 
-  height: auto;
-  -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-}
-</style>
-  <title>pp-collection.js</title>
-</head>
-<body>
-
-<section class="section" >
-<div class="container" >
-
-  <h1 class="title">
-        pp-collection.js
-      </h1>
-      <p class="subtitle">
-        Simple Collection of <strong><a href="https://github.com/carlos-sweb/pp-model">pp-model.js</a></strong>
-      </p>
-      <p>Data generate by&nbsp;<a href="https://www.json-generator.com">https://www.json-generator.com</a></p><hr>
-
-
-
-<p class="title is-3" >Initialize</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/theme/ayu-mirage.min.css"><link rel="stylesheet" href="style.css"><title>pp-collection.js</title></head><body><section class="section" ><div class="container" ><h1 class="title">pp-collection.js</h1><p class="subtitle">Simple Collection of <strong><a href="https://github.com/carlos-sweb/pp-model">pp-model.js</a></strong></p><p>Data generate by&nbsp;<a href="https://www.json-generator.com">https://www.json-generator.com</a></p><hr><p class="title is-3" >Initialize</p>
 <textarea code >//Here declare model
 var model = new ppModel();
 // Here declare collection and defined model use
@@ -46,7 +8,6 @@ var modelCollection = ppCollection({
 // Created model using data array
 var mc = new modelCollection(data);
 </textarea><hr>
-
 <p class="title is-4 underline" >forEach:<span class="has-text-info" >&nbsp;[Function]</span></p>
 <p>Native Function.</p><hr>
 
@@ -100,7 +61,7 @@ var mc = new modelCollection(data);
   </ul>
 </div>
 
-<script type="type/javascript" >  
+<script>  
   var tabs = document.querySelectorAll("[tab]");
   tabs.forEach((tab)=>{
     tab.addEventListener("click",( ETab )=>{      
@@ -150,24 +111,19 @@ printTableRows( element );
   &#60;/tbody&#62;
 &#60;/table&#62;</textarea>
 <hr>
-<p class="title is-3 underline" >Result</p>
-
+<p class="title is-3 underline" >Results</p>
 <form >
   <div class="field">
     <input placeholder="search" id="search" class="input" type="text" autocomplete="off" >
-  </div>
-  
+  </div>  
   <div class="field">
     <label for="">Search only for:</label><br>
-    <label for=""><input name="filterBy" type="radio" value="name,email,balance" checked="checked" >All</label>&nbsp;&nbsp;
-    <label for=""><input name="filterBy" type="radio" value="name"    >Name</label>&nbsp;&nbsp;
-    <label for=""><input name="filterBy" type="radio" value="email"   >Email</label>&nbsp;&nbsp;
-    <label for=""><input name="filterBy" type="radio" value="balance" >Balance</label>  
+<label for=""><input name="filterBy" type="radio" value="name,email,balance" checked="checked" >&nbsp;All</label>&nbsp;&nbsp;
+<label for=""><input name="filterBy" type="radio" value="name"    >&nbsp;Name</label>&nbsp;&nbsp;
+<label for=""><input name="filterBy" type="radio" value="email"   >&nbsp;Email</label>&nbsp;&nbsp;
+<label for=""><input name="filterBy" type="radio" value="balance" >&nbsp;Balance</label>  
   </div>
-
 </form>
-
-
 <table class="table is-bordered" style="width:100%;" >
   <thead>
     <tr>
@@ -180,17 +136,5 @@ printTableRows( element );
   <tbody id="tableRows" >         
   </tbody>
 </table>
-
 </div>
-</section>
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/javascript/javascript.min.js" integrity="sha512-9miXlEjnHTF+nVGdc2IGOLGTFW2wWkWbd1/7Ltlre+dM53ZSCUQ/PNN+jtsmYqr3ndiD5RW6XQJUm/Hz8JvyOQ==" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pp-model.js@1.0.4/pp-model.min.js" ></script>
-  <script type="text/javascript" src="data.js" ></script>
-  <script type="text/javascript" src="pp-collection.min.js?v=4206137758251" ></script>
-  <script type="text/javascript" src="index.js?v=4303271781465"></script>
-</body>
-</html>
+</section><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js" ></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/javascript/javascript.min.js" ></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pp-model.js@1.0.4/pp-model.min.js" ></script><script type="text/javascript" src="data.js" ></script><script type="text/javascript" src="pp-collection.min.js" ></script><script type="text/javascript" src="index.js" ></script></body></html>

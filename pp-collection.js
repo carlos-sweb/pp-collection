@@ -100,16 +100,19 @@
 
         }
       /**
-      *
-      *
+      *@var getAll
+      *@type Function
+      *@description - retorna la colección completa de pp-models
       */  
       this.getAll = function(){
 
         return this.collection;
 
       }
-      /*
-      *At
+      /**
+      *@var at
+      *@type Function
+      *@description - retorna el elemento de la posición solicitada si este existe 
       *@param position
       */
       this.at = function( position ){
@@ -123,7 +126,12 @@
           return null;
         }
       }
-
+      /**
+       *@var push 
+       *@type Native Function
+       *@description - Native Description
+       *@param obj  
+       */
       this.push = function( obj ){
           this.collection.push( new this.model(obj) );
       }
