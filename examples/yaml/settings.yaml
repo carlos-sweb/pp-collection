@@ -1,0 +1,30 @@
+title : pp-collection.js
+subtitle : Simple Collection of
+links : [ "https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css",
+          "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css",
+          "https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css",
+          "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css",
+          "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/theme/ayu-mirage.min.css",
+          "css/style.css"]
+scripts: ['https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js',
+         'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/javascript/javascript.min.js',
+         'https://cdn.jsdelivr.net/npm/pp-model.js@1.0.4/pp-model.min.js',
+         'js/data.js',
+         'js/pp-collection.min.js',
+         'js/index.js']
+functions : 
+  forEach : Native Function.
+  filter : Native Function.
+  at : Native Function.
+  getAll : Native Function.
+  push : Native Function.
+  pop : Native Function.
+  unshift : Native Function.
+  shift : Native Function.
+  length : Native Function.
+  sort : Native Function.
+  pluck : Native Function.
+  where : Native Function.
+contact: 
+  email: c4rl0sill3sc4@gmail.com
+  avatar: https://avatars3.githubusercontent.com/u/15951745?s=128&u=8a6fe8190c3b8f8827026a051fc5c5523a0b92a5&v=4
